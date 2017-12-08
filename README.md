@@ -14,13 +14,15 @@ $ open http://cppcheck.sourceforge.net
 - [x] 5. Используя **Valgrind** провести анализ проекта на **C++**
 - [x] 6. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
-$ alias edit=vim # присваиваем edit=vim
-$ cd anasteyshakoshman/workspace/projects # переходим в директорию с проектами
-$ mkdir lab15 && cd lab15 # создаём папку lab15 и переходим в неё
-$ touch main.cpp && edit main.cpp # создаём файл main.cpp и редактируем его ( пишем код)
+```ShellSession
+$ alias edit=vim                  #присваиваем edit=vim
+$ cd anasteyshakoshman/workspace/projects                       #переходим в директорию с проектами
+$ mkdir lab15 && cd lab15                       #создаём папку lab15 и переходим в неё
+$ touch main.cpp && edit main.cpp    #создаём файл main.cpp и редактируем его ( пишем код)
+```
 
 # Cpplint - это скрипт на Питоне для автоматической проверки стиля кодирования 
-
+```ShellSession
 $ sudo apt-get install python.pip # устанавливаем python.pip
 $ sudo pip install cpplint # устанавливаем cpplint с помощью команды pip
 $ cpplint main.cpp #анализируем проект main.cpp с помощью cpplint
@@ -59,7 +61,7 @@ Total errors found: 29
 $ edit main.cpp #исправляем ошибки
 $ cpplint main.cpp #проверка выполнена, ошибки не найдены
 Done processing main.cpp
-
+```
 # Cppcheck - - это инструмент статического анализа исходного кода на языке Си и Си++. Анализатор Cppcheck выполняет множество различных видов проверок. Перечислим некоторые из них:
 - Неправильное использование функций из Standard Template Library;
 - Утечки памяти (Memory leaks);
@@ -69,7 +71,7 @@ Done processing main.cpp
 - Использование устаревших функций;
 - Проверка операций ввода/вывода (Check input/output operations);
 - Разыменование нулевого указателя.
-
+```ShellSession
 $ edit main.cpp      # редактирую проект, создаю ошибку ображения к невыделенной памяти, для ее выявления с помощью cppcheck
 $ sudo apt-get install cppcheck #устанавливаем cppcheck
 $ cppcheck —version #смотрим версию
@@ -80,7 +82,7 @@ Checking main.cpp ...
 $ edit main.cpp #исправляем ошибки
 $ $ cppcheck main.cpp # проверка выполнена, ошибки не найдены
 Checking main.cpp ...
-
+```
 # Oclint - инструмент,  который проверяет программы на С, С++ и Objective-C на наличие следующих багов и ошибок:
 - пустые конструкции if/else/try/catch/finally;
 - неиспользуемые локальные переменные и параметры;
@@ -88,6 +90,7 @@ Checking main.cpp ...
 - избыточное использование конструкций if и ненужных скобок;
 - использование длинных методов и длинных списков параметров;
 - плохие практики написания кода — переназначение параметров, неправильное использование логики.
+```ShellSession
 $ edit main.cpp    # редактирую проект
 $ cd ~           #
 $ cd oclint-0.13        # переход в папку распакованного архива
@@ -115,13 +118,13 @@ Summary: TotalFiles=1 FilesWithViolations=0 P1=0 P2=0 P3=0
 
 
 [OCLint (http://oclint.org) v0.13]
-
+```
 
 
 
 
 # Valgrind - контролирует использование памяти, например, вызовы malloc и free (или new и delete в C++). Если используется неинициализированная память, записывается за пределами концов массива, или не освобождается указатель, Valgrind может это обнаружить
-
+```ShellSession
 $ edit main.cpp    # редактирую проект, не особождаю указатель для выявления ошибки с помощью valgrind
 $ sudo apt-get install valgrind
 $ valgrind --version # узнаем версию
@@ -176,10 +179,7 @@ $ valgrind --tool=memcheck ./main       # все блоки кучи были о
 ==18325== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 $ rm -rf main.o      # удаление обьектного файла
 $ rm -rf main        # удаление исполняемого файла
-
-
-
-
+```
 
 
 ## Links
